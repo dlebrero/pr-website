@@ -10,7 +10,9 @@
                  [mysql/mysql-connector-java "5.1.6"]
                  [ring/ring-defaults "0.2.1"]]
   :plugins [[lein-ring "0.12.5"]]
-  :ring {:handler pr-website.handler/app}
+  :ring {:handler pr-website.handler/app
+         :nrepl? true
+         :port 8889}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.2"]]}})
