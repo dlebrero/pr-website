@@ -7,9 +7,11 @@
             [pr-website.query :refer :all]))
 
 (defroutes app-routes
+           (GET "/api/experiencias" []
+                (response (get-experiencias)))
            (POST "/api/experiencias" {:keys [params]}
-                 (let [{:keys [dataInicio dataFim empresa titulo principaisAtividades]} params]
-                   (response (add-experiencia dataInicio dataFim empresa titulo principaisAtividades))))
+             (let [{:keys [dataInicio dataFim empresa titulo principaisAtividades]} params]
+               (response (add-experiencia dataInicio dataFim empresa titulo principaisAtividades))))
            (route/resources "/")
            (route/not-found "Not found"))
 
